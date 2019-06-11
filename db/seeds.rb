@@ -6,12 +6,63 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Team.create! do |team|
+  team.name = 'San Antonio Sloths'
+  team.shorthand = 'SAS'
+  team.id = 62
+  team.league = 'pbe'
+end
+
+Team.create! do |team|
+  team.name = 'Florida Space Rangers'
+  team.shorthand = 'FL'
+  team.id = 160
+  team.league = 'pbe'
+end
+
+Team.create! do |team|
+  team.name = 'Utah Railroaders'
+  team.shorthand = 'UTA'
+  team.id = 163
+  team.league = 'pbe'
+end
+
+Team.create! do |team|
+  team.name = 'Death Valley Scorpions'
+  team.shorthand = 'DV'
+  team.id = 74
+  team.league = 'pbe'
+end
+
+Team.create! do |team|
+  team.name = 'New York Voyagers'
+  team.shorthand = 'NYV'
+  team.id = 65
+  team.league = 'pbe'
+end
+
+Team.create! do |team|
+  team.name = 'Outer Banks Aviators'
+  team.shorthand = 'OBX'
+  team.id = 71
+  team.league = 'pbe'
+end
 
 Team.create! do |team|
   team.name = 'Providence Crabs'
+  team.shorthand = 'PRO'
   team.id = 59
   team.league = 'pbe'
 end
+
+
+Team.create! do |team|
+  team.name = 'Vancouver Vandals'
+  team.shorthand = 'VAN'
+  team.id = 68
+  team.league = 'pbe'
+end
+
 
 # A.C. Payton
 PitchingAttr.create! do |attrs|
@@ -73,6 +124,32 @@ FieldingAttr.create! do |attrs|
   attrs.dp = 20
   attrs.catch = 73
   attrs.player_id = 4673
+end
+
+# Mitch McIntyre
+PitchingAttr.create! do |attrs|
+  attrs.velocity = '89 - 91'
+  attrs.move_l = 60
+  attrs.move_r = 60
+  attrs.con_l = 65
+  attrs.con_r = 70
+  attrs.stamina = 56
+  attrs.hold = 40
+  attrs.pitch_1 = 50
+  attrs.pitch_2 = 60
+  attrs.pitch_3 = 70
+  attrs.pitch_4 = 0
+  attrs.pitch_5 = 0
+  attrs.player_id = 4870
+end
+
+Player.create! do |attrs|
+  attrs.id = 4870
+  attrs.name = 'Mitch McIntyre'
+  attrs.draft_season = 'S9'
+  attrs.tpe = 430
+  attrs.position = 'SP'
+  attrs.team_id = 71
 end
 
 
