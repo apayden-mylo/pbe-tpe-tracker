@@ -55,12 +55,39 @@ Team.create! do |team|
   team.league = 'pbe'
 end
 
-
 Team.create! do |team|
   team.name = 'Vancouver Vandals'
   team.shorthand = 'VAN'
   team.id = 68
   team.league = 'pbe'
+end
+
+Team.create! do |team|
+  team.name = 'State College Swift Steeds'
+  team.shorthand = 'SCSS'
+  team.id = 138
+  team.league = 'milpbe'
+end
+
+Team.create! do |team|
+  team.name = 'Anchorage Wheelers'
+  team.shorthand = 'ANC'
+  team.id = 140
+  team.league = 'milpbe'
+end
+
+Team.create! do |team|
+  team.name = 'Kingston Mounties'
+  team.shorthand = 'VAN'
+  team.id = 152
+  team.league = 'milpbe'
+end
+
+Team.create! do |team|
+  team.name = 'Amarillo Armadillos'
+  team.shorthand = 'ARM'
+  team.id = 155
+  team.league = 'milpbe'
 end
 
 

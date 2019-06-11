@@ -9,13 +9,27 @@
       </div>
     <% end %>
   </div>
-  <div class="row ">
+  <h3>PBE</h3>
+  <div class="row mb-4">
     <% @pbe_teams.each do |team| %>
       <%= link_to team_path(team), class: 'col-md-3 mb-4 col-xl-3' do %>
         <%= content_tag :div, class: "border-0 card shadow" do %>
           <%= image_tag File.join('pbe', "#{team.name.parameterize.underscore}.png"), class: "card-img-top" %>
           <%= content_tag :div, class: "card-body text-center" do %>
-            <%= content_tag :h5, team.name, class: "card-title mb-0" %>
+            <%= content_tag :h6, team.name, class: "card-title mb-0" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <h3>MiLPBE</h3>
+  <div class="row mb-4">
+    <% @milpbe_teams.each do |team| %>
+      <%= link_to team_path(team), class: 'col-md-3 mb-4 col-xl-3' do %>
+        <%= content_tag :div, class: "border-0 card shadow" do %>
+          <%= image_tag File.join('milpbe', "#{team.name.parameterize.underscore}.png"), class: "card-img-top" %>
+          <%= content_tag :div, class: "card-body text-center" do %>
+            <%= content_tag :h6, team.name, class: "card-title mb-0" %>
           <% end %>
         <% end %>
       <% end %>
