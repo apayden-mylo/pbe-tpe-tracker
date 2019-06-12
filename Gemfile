@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.3'
 gem 'jquery-rails'
 
+gem 'nokogiri'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
