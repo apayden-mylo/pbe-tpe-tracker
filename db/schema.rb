@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_192119) do
+ActiveRecord::Schema.define(version: 2019_06_13_184318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 2019_06_12_192119) do
     t.string "archetype"
     t.bigint "player_id"
     t.index ["player_id"], name: "index_fielding_attrs_on_player_id"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "hitting_attrs", force: :cascade do |t|
@@ -83,12 +94,13 @@ ActiveRecord::Schema.define(version: 2019_06_12_192119) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "url"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "league"
     t.string "shorthand"
+    t.string "slug"
+    t.index ["slug"], name: "index_teams_on_slug", unique: true
   end
 
   add_foreign_key "players", "teams"

@@ -1,9 +1,10 @@
-<h1>Team Players</h1>
+<% content_for :title, @title %>
+
+<h1></h1>
 <table class="table table-bordered" id="playerTable">
   <thead>
   <tr>
     <th scope="col" data-sortable="true">Regression Season</th>
-    <th scope="col" data-sortable="true">Team</th>
     <th scope="col" data-sortable="true">Name</th>
     <th scope="col" data-sortable="true">Position</th>
     <th scope="col" data-sortable="true">TPE</th>
@@ -11,10 +12,9 @@
   </thead>
 
   <tbody>
-  <% @players.each do |player| %>
+  <% @team.players.each do |player| %>
     <tr>
       <td><%= player.regression_season %></td>
-      <td><%= player.team.name %></td>
       <td><%= player.name %></td>
       <td><%= player.position %></td>
       <td><%= player.tpe %></td>

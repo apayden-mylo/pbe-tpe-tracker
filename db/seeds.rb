@@ -111,7 +111,7 @@ end
 Player.create! do |attrs|
   attrs.id = 5097
   attrs.name = 'A.C. Payton'
-  attrs.draft_season = 'S10'
+  attrs.regression_season = 'S10'
   attrs.tpe = 488
   attrs.position = 'SP'
   attrs.team_id = 59
@@ -121,7 +121,7 @@ end
 Player.create! do |attrs|
   attrs.id = 4673
   attrs.name = 'Jahseh Tentacion'
-  attrs.draft_season = 'S9'
+  attrs.regression_season = 'S9'
   attrs.tpe = 710
   attrs.position = 'C'
   attrs.team_id = 59
@@ -173,7 +173,7 @@ end
 Player.create! do |attrs|
   attrs.id = 4870
   attrs.name = 'Mitch McIntyre'
-  attrs.draft_season = 'S9'
+  attrs.regression_season = 'S9'
   attrs.tpe = 430
   attrs.position = 'SP'
   attrs.team_id = 71

@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   def show
-    @team = Team.find(params[:id])
-    @players = @team.players
+    @team = Team.friendly.find(params[:id])
+
+    @title = @team.name
   end
 end

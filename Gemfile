@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.3'
 gem 'jquery-rails'
+gem 'friendly_id', '~> 5.2.4'
 
 gem 'nokogiri'
 

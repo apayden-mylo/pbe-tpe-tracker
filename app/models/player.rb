@@ -7,23 +7,14 @@ class Player < ApplicationRecord
 
   scope :pitchers, -> { joins(:pitching_attr) }
   scope :hitters, -> { joins(:hitting_attr) }
-  scope :hitters, -> { joins(:hitting_attr) }
+  scope :fielders, -> { joins(:fielding_attr) }
+
+  POSITIONS = %w(SP CL RP C 1B 2B 3B SS LF CF RF)
+
+  validates :position, presence: true, inclusion: { in: POSITIONS }
 
   enum throws: { throws_left: 'Left', throws_right: 'Right' }
   enum bats: [:bats_left, :bats_right, :bats_switch]
-  enum position: {
-      'SP': 'Starting Pitcher',
-      'CL': 'Closer',
-      'RP': 'Middle/Long Relief Pitcher',
-      'C': 'Catcher',
-      '1B': 'First Base',
-      '2B': 'Second Base',
-      '3B': 'Third Base',
-      'SS': 'Shortstop',
-      'LF': 'Left Field',
-      'CF': 'Center Field',
-      'RF': 'Right Field'
-  }
 
   def hitter?
     fielding_attr.present? && hitting_attr.present?

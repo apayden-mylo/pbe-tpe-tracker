@@ -11,6 +11,5 @@ end
 
 desc "This task is called by the Heroku scheduler add-on"
 task :update_teams => :environment do
-  Services::ForumParser.league_parser('pbe')
-  Services::ForumParser.league_parser('milpbe')
+  Services::ForumParser.team_parser
 end
