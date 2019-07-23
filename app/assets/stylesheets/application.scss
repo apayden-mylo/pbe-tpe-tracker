@@ -1,3 +1,24 @@
 @import "bootstrap";
 @import 'players';
 @import "welcome";
+
+table,
+thead,
+tr,
+tbody,
+th,
+td {
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}
+
+.equal_width {
+  width: 50%;
+}
+
+.five_wide {
+  width: 20%;
+}

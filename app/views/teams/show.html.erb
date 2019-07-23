@@ -1,4 +1,4 @@
-<% content_for :title, @title %>
+<% content_for :title, @team.name %>
 
 <h1></h1>
 <table class="table table-bordered" id="playerTable">
@@ -15,7 +15,7 @@
   <% @team.players.each do |player| %>
     <tr>
       <td><%= player.regression_season %></td>
-      <td><%= player.name %></td>
+      <td><%= link_to player.name, player_path(player) %></td>
       <td><%= player.position %></td>
       <td><%= player.tpe %></td>
     </tr>

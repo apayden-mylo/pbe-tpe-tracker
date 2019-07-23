@@ -16,6 +16,7 @@
 # Ignore IntelliJ files
 /.idea/
 *.iml
+.DS_Store
 
 # Ignore uploaded files in development
 /storage/*

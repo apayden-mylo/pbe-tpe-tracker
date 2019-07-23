@@ -1,0 +1,18 @@
+<% content_for :title, @player.name %>
+
+<div class="container">
+  <div class="overview mb-5">
+    <h4><b>Name:</b> <%= link_to @player.name, player_forum_path(@player), target: '_blank' %></h4>
+    <h4><b>Team:</b> <%= link_to @player.team.name, team_forum_path(@player.team), target: '_blank' %></h4>
+    <h4><b>Position:</b> <%= @player.position %></h4>
+    <h4><b>Regression:</b> <%= @player.regression_season %></h4>
+    <h4><b>TPE:</b> <%= @player.tpe %></h4>
+
+
+  </div>
+
+  <%= render 'pitching' if @player.pitcher?  %>
+  <%= render 'hitting' if @player.hitter?  %>
+  <%= render 'fielding' if @player.hitter?  %>
+</div>
+

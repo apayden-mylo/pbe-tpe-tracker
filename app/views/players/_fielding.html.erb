@@ -1,0 +1,23 @@
+<div class="d-flex mt-3 mb-2">
+  <h5><b>Fielding Archetype:</b> <%= @player.fielding_attr.archetype %></h5>
+</div>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Range</th>
+    <th>Error</th>
+    <th>Arm</th>
+    <th>Double Play</th>
+    <th>Catching Ability</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td width="20%"><%= @player.fielding_attr.range %></td>
+    <td width="20%"><%= @player.fielding_attr.error %></td>
+    <td width="20%"><%= @player.fielding_attr.arm %></td>
+    <td width="20%"><%= @player.fielding_attr.dp %></td>
+    <td width="20%"><%= @player.fielding_attr.catch %></td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,44 @@
+<h5>Pitching Attributes</h5>
+<table id="productSizes" class="table">
+  <thead>
+  <tr>
+    <th>Movement vs. LHB</th>
+    <th>Movement vs. RHB</th>
+    <th>Control vs. LHB</th>
+    <th>Control vs. RHB</th>
+    <th>Stamina</th>
+    <th>Hold Runner</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @player.pitching_attr.move_l %></td>
+    <td><%= @player.pitching_attr.move_r %></td>
+    <td><%= @player.pitching_attr.con_l %></td>
+    <td><%= @player.pitching_attr.con_r %></td>
+    <td><%= @player.pitching_attr.stamina %></td>
+    <td><%= @player.pitching_attr.hold %></td>
+  </tr>
+  </tbody>
+</table>
+<h5>Pitches</h5>
+<table id="productSizes" class="table">
+  <thead>
+  <tr>
+    <th>Pitch 1</th>
+    <th>Pitch 2</th>
+    <th>Pitch 3</th>
+    <%= content_tag(:th, "Pitch 4") if @player.pitching_attr.pitch_4 != 0 %>
+    <%= content_tag(:th, "Pitch 5") if @player.pitching_attr.pitch_5 != 0 %>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @player.pitching_attr.pitch_1 %></td>
+    <td><%= @player.pitching_attr.pitch_2 %></td>
+    <td><%= @player.pitching_attr.pitch_3 %></td>
+    <%= content_tag(:td, @player.pitching_attr.pitch_4) if @player.pitching_attr.pitch_4 != 0 %>
+    <%= content_tag(:td, @player.pitching_attr.pitch_5) if @player.pitching_attr.pitch_5 != 0 %>
+  </tr>
+  </tbody>
+</table>
