@@ -4,19 +4,6 @@ module Services
       def parse_all_teams
         Team.all.each do |team|
           parse_team(team.id)
-
-          # page = Nokogiri::HTML(open(uri.to_s), nil, Encoding::UTF_8.to_s)
-          # page.css('tr.topic-row').each do |row|
-          #   player_data = parse_player_from_team(row)
-          #
-          #   unless player_data.nil?
-          #     id = player_data[:id]
-          #     player_data[:team_id] = team.id
-          #
-          #     player = Player.where(id: id).first_or_initialize(player_data)
-          #     player.save if player.valid?
-          #   end
-          # end
         end
       end
 
@@ -39,8 +26,12 @@ module Services
               player_id = player_data[:id]
               player_data[:team_id] = team_id
 
-              player = Player.where(id: player_id).first_or_initialize(player_data)
-              player.save if player.valid?
+              player = Player.where(id: player_id).first_or_initialize
+              player.assign_attributes(player_data)
+
+              if player.changed? && player.valid?
+                player.save
+              end
             end
           end
         end

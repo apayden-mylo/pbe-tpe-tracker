@@ -8,8 +8,7 @@ module Services
           name = data[:name]
           id = data[:id]
 
-          team = Team.where(id: id).first_or_create(league: league, name: name)
-          team.save
+          Team.where(id: id).first_or_create.update(league: league, name: name)
           save_image(name, row, league)
         end
       end
