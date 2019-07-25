@@ -1,0 +1,26 @@
+<table class="table table-bordered" id="playerTable">
+  <thead>
+  <tr>
+    <th scope="col" data-sortable="true">Regression Season</th>
+    <th scope="col" data-sortable="true">Team</th>
+    <th scope="col" data-sortable="true">Name</th>
+    <th scope="col" data-sortable="true">Position</th>
+    <th scope="col" data-sortable="true">TPE</th>
+    <th scope="col" data-sortable="true">Last Updated</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @players.each do |player| %>
+    <tr>
+      <td><%= player.regression_season %></td>
+      <td><%= link_to player.team.name, team_path(player.team) %></td>
+      <td><%= link_to player.name, player_path(player) %></td>
+      <td><%= player.position %></td>
+      <td><%= player.tpe %></td>
+      <td><%= player.updated_at.strftime('%m/%d/%Y') %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

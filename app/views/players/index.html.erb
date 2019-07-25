@@ -1,28 +1,9 @@
 <% content_for :title, 'All Players' %>
 
-<h1>All Players</h1>
+<div class="container">
+  <h1>All Players</h1>
 
-<table class="table table-bordered" id="playerTable">
-  <thead>
-  <tr>
-    <th scope="col" data-sortable="true">Regression Season</th>
-    <th scope="col" data-sortable="true">Team</th>
-    <th scope="col" data-sortable="true">Name</th>
-    <th scope="col" data-sortable="true">Position</th>
-    <th scope="col" data-sortable="true">TPE</th>
-  </tr>
-  </thead>
+  <%= render 'shared/players' %>
+</div>
 
-  <tbody>
-  <% @players.each do |player| %>
-    <tr>
-      <td><%= player.regression_season %></td>
-      <td><%= link_to player.team.name, team_path(player.team) %></td>
-      <td><%= link_to player.name, player_path(player) %></td>
-      <td><%= player.position %></td>
-      <td><%= player.tpe %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
 
