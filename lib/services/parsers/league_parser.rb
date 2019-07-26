@@ -2,14 +2,16 @@ module Services
   module Parsers
     module LeagueParser
       def league_parser(league)
-        page = Nokogiri::HTML(open(league_url(league)), nil, Encoding::UTF_8.to_s)
-        page.css('tr.forum-row').each do |row|
-          data = parse_team_from_league(row)
-          name = data[:name]
-          id = data[:id]
+        league_urls(league).each do |url|
+          page = Nokogiri::HTML(open(url), nil, Encoding::UTF_8.to_s)
+          page.css('tr.forum-row').each do |row|
+            data = parse_team_from_league(row)
+            name = data[:name]
+            id = data[:id]
 
-          Team.where(id: id).first_or_create.update(league: league, name: name)
-          save_image(name, row, league)
+            Team.where(id: id).first_or_create.update(league: league, name: name)
+            save_image(name, row, league)
+          end
         end
       end
 
@@ -29,8 +31,8 @@ module Services
         end
       end
 
-      def league_url(league)
-        league == 'pbe' ? PBE_URL : MILPBE_URL
+      def league_urls(league)
+        league == 'pbe' ? [PBE_EAST_URL, PBE_WEST_URL] : [MILPBE_URL]
       end
     end
   end
