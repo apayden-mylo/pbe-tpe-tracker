@@ -1,17 +1,26 @@
-<nav class="bg-light navbar navbar-expand-lg navbar-light rounded mb-4">
+<nav class="bg-light navbar navbar-expand-lg navbar-light rounded">
   <div class="collapse navbar-collapse" id="navbar">
     <ul class="mr-auto navbar-nav">
       <li class="nav-item">
-        <a class=nav-link href=/>Home</a>
+        <%= link_to 'Home', root_path, class: 'nav-link' %>
       </li>
       <li class=nav-item>
-        <a class=nav-link href=/all_players>All Players</a>
+        <%= link_to 'All Players', players_path, class: 'nav-link' %></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href=pbe aria-expanded=false data-toggle=dropdown id=pbe>PBE</a>
+        <div class="dropdown-menu" aria-labelledby=pbe>
+          <% Team.where(league: 'pbe').each do |team| %>
+            <%= link_to team.name, team_path(team), class: 'dropdown-item' %>
+          <% end %>
+        </div>
       </li>
-      <li class=nav-item>
-        <a class=nav-link href=/team_stats>Team TPE</a>
-      </li>
-      <li class=nav-item>
-        <a class=nav-link href=/position_stats>Position Stats</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href=milpbe aria-expanded=false aria-haspopup=true data-toggle=dropdown id=milpbe>MilPBE</a>
+        <div class="dropdown-menu" aria-labelledby=milpbe>
+          <% Team.where(league: 'milpbe').each do |team| %>
+            <%= link_to team.name, team_path(team), class: 'dropdown-item' %>
+          <% end %>
+        </div>
       </li>
     </ul>
   </div>
