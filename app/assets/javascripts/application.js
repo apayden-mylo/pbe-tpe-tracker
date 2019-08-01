@@ -10,10 +10,23 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require activestorage
-//= require turbolinks
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require datatables
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function () {
+    $(document).ready(function () {
+        Turbolinks.clearCache();
+        $('#playerTable').DataTable({
+            "order": [[4, "desc"]]
+        });
+
+        $('.dataTables_length').addClass('bs-select');
+    });
+});
+
