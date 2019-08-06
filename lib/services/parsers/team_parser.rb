@@ -60,7 +60,9 @@ module Services
           position = matches[:position]
         end
 
-        { id: id, name: name, position: position, regression_season: season, tpe: tpe }
+        data = { id: id, name: name, position: position, regression_season: season, tpe: tpe }
+        puts data
+        data
       end
     end
   end
