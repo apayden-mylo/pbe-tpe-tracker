@@ -8,17 +8,14 @@ module Services
       end
 
       def parse_team(team_id)
-        doc_list = Array.new
+        puts team_id
 
         uri = URI.parse(JCINK_BASE_URL)
         uri.query = [uri.query, "showforum=#{team_id}"].compact.join('&')
 
-        first_doc = Nokogiri::HTML(open(uri.to_s), nil, Encoding::UTF_8.to_s)
-        doc_list.push(first_doc)
+        pages = find_team_pages(uri)
 
-        doc_list = (doc_list + find_team_pages(first_doc))
-
-        doc_list.each do |page|
+        pages.each do |page|
           page.css('tr.topic-row').each do |row|
             player_data = parse_player_from_team(row)
 
@@ -39,12 +36,23 @@ module Services
 
       private
 
-      def find_team_pages(doc)
-        pages = doc.css('span.pagination').first
+      def find_team_pages(base_uri)
+        doc_list = Array.new
 
-        pages.css('a.pagination_page').map do |page|
-          Nokogiri::HTML(open(page['href'].to_s), nil, Encoding::UTF_8.to_s)
+        first_doc = Nokogiri::HTML(open(base_uri.to_s), nil, Encoding::UTF_8.to_s)
+        doc_list.push(first_doc)
+
+        if (page_text = first_doc.css('span.pagination_pagetxt').first)
+          page_count = page_text.text.match(PAGE_COUNT_REGEX)[:count].to_i
+
+          (1..page_count - 1).each do |page|
+            uri = base_uri
+            uri.query = [uri.query, "st=#{15 * page}"].compact.join('&')
+            doc_list.push(Nokogiri::HTML(open(uri.to_s), nil, Encoding::UTF_8.to_s))
+          end
         end
+
+        doc_list
       end
 
       def parse_player_from_team(row)

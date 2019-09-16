@@ -7,6 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Team.create! do |team|
+  team.name = 'Free Agent'
+  team.shorthand = 'FA'
+  team.id = 7
+  team.league = 'free_agent'
+end
+
+Team.create! do |team|
+  team.name = 'Retired'
+  team.id = 10
+  team.league = 'retired'
+end
+
+Team.create! do |team|
   team.name = 'San Antonio Sloths'
   team.shorthand = 'SAS'
   team.id = 62

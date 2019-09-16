@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   def index
-    @players = Player.order(tpe: :desc)
+    @players = Player.where('team_id != 7 AND team_id != 10').order(tpe: :desc)
   end
 
   def show

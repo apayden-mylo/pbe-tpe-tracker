@@ -5,7 +5,7 @@ class Team < ApplicationRecord
   has_many :players
   validates_presence_of :name, :league
 
-  enum league: [:pbe, :milpbe]
+  enum league: [:pbe, :milpbe, :free_agent, :retired]
 
   def players
     Player.where(team_id: id)
