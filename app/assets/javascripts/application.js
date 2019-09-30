@@ -30,3 +30,13 @@ $(document).on('turbolinks:load', function () {
     });
 });
 
+$(document).on('turbolinks:load', function () {
+    $(document).ready(function () {
+        Turbolinks.clearCache();
+        $('#tpeTable').DataTable({
+            "order": [[2, "desc"]]
+        });
+
+        $('.dataTables_length').addClass('bs-select');
+    });
+});

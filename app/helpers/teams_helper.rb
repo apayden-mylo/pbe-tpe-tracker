@@ -9,4 +9,8 @@ module TeamsHelper
   def active_team?(name)
     !(name == 'Retired' || name == 'Free Agent')
   end
+
+  def league_name(team)
+    team.league == 'pbe' ? 'PBE' : 'MiLPBE'
+  end
 end

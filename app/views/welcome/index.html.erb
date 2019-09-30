@@ -3,21 +3,28 @@
 <div class="container mt-4">
   <h1>PBE TPE Tracker</h1>
   <div class="row">
-    <%= link_to players_path, class: 'col-md-4 mb-4 mt-10 col-xl-4' do %>
+    <%= link_to teams_path, class: 'col-md-3 mb-4 mt-10 col-xl-3' do %>
+      <div class="border-0 mt-4 card shadow">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">Team Totals</h5>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to players_path, class: 'col-md-3 mb-4 mt-10 col-xl-3' do %>
       <div class="border-0 mt-4 card shadow">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">All Players</h5>
         </div>
       </div>
     <% end %>
-    <%= link_to team_path(Team.where(league: 'free_agent').first), class: 'col-md-4 mb-4 mt-10 col-xl-4' do %>
+    <%= link_to team_path(Team.where(league: 'free_agent').first), class: 'col-md-3 mb-4 mt-10 col-xl-3' do %>
       <div class="border-0 mt-4 card shadow">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">Free Agents</h5>
         </div>
       </div>
     <% end %>
-    <%= link_to team_path(Team.where(league: 'retired').first), class: 'col-md-4 mb-4 mt-10 col-xl-4' do %>
+    <%= link_to team_path(Team.where(league: 'retired').first), class: 'col-md-3 mb-4 mt-10 col-xl-3' do %>
       <div class="border-0 mt-4 card shadow">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">Retired</h5>

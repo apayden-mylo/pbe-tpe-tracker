@@ -19,6 +19,10 @@ class Team < ApplicationRecord
     Player.pitchers.where(team_id: id)
   end
 
+  def total_tpe
+    players.sum(&:tpe)
+  end
+
   def normalize_friendly_id(string)
     super.parameterize.underscore
   end
