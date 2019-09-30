@@ -5,4 +5,8 @@ module TeamsHelper
 
     uri.to_s
   end
+
+  def active_team?(name)
+    !(name == 'Retired' || name == 'Free Agent')
+  end
 end
