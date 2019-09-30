@@ -8,8 +8,6 @@ module Services
       end
 
       def parse_team(team_id)
-        puts team_id
-
         uri = URI.parse(JCINK_BASE_URL)
         uri.query = [uri.query, "showforum=#{team_id}"].compact.join('&')
 
@@ -68,9 +66,7 @@ module Services
           position = matches[:position]
         end
 
-        data = { id: id, name: name, position: position, regression_season: season, tpe: tpe }
-        puts data
-        data
+        { id: id, name: name, position: position, regression_season: season, tpe: tpe }
       end
     end
   end
