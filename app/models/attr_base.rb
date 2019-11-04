@@ -1,0 +1,3 @@
+class AttrBase < ApplicationRecord
+
+end

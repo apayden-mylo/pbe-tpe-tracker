@@ -9,10 +9,13 @@ class Player < ApplicationRecord
   scope :hitters, -> { joins(:hitting_attr) }
   scope :fielders, -> { joins(:fielding_attr) }
 
-  POSITIONS = {
+  PITCHER_POSITIONS = {
       'SP' => 'Starting Pitcher',
       'CL' => 'Closer',
-      'RP' => 'Relief Pitcher',
+      'RP' => 'Relief Pitcher'
+  }.freeze
+
+  HITTER_POSITIONS = {
       'C' => 'Catcher',
       '1B' => 'First Base',
       '2B' => 'Second Base',
@@ -24,6 +27,8 @@ class Player < ApplicationRecord
       'DH' => 'Designated Hitter'
   }.freeze
 
+  POSITIONS = PITCHER_POSITIONS.merge(HITTER_POSITIONS).freeze
+
   validates :position, presence: true, inclusion: { in: POSITIONS.keys }
 
   enum throws: { throws_left: 'Left', throws_right: 'Right' }
@@ -34,10 +39,10 @@ class Player < ApplicationRecord
   end
 
   def hitter?
-    fielding_attr.present? && hitting_attr.present?
+    HITTER_POSITIONS.key?(position) && hitting_attr.present?
   end
 
   def pitcher?
-    pitching_attr.present?
+    PITCHER_POSITIONS.key?(position) && pitching_attr.present?
   end
 end

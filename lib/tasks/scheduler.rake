@@ -1,6 +1,6 @@
 desc "This task is called by the Heroku scheduler add-on"
 task :update_players => :environment do
-  Services::ForumParser.player_parser
+  Services::ForumParser.parse_all_players
 end
 
 desc "This task is called by the Heroku scheduler add-on"

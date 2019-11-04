@@ -2,6 +2,8 @@ class Team < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  scope :active, -> { where.not(league: 'free_agent') }
+
   has_many :players
   validates_presence_of :name, :league
 

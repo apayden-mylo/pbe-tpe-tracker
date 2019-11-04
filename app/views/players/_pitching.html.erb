@@ -1,5 +1,5 @@
 <h5>Pitching Attributes</h5>
-<table id="productSizes" class="table">
+<table class="table">
   <thead>
   <tr>
     <th>Movement vs. LHB</th>
@@ -22,14 +22,14 @@
   </tbody>
 </table>
 <h5>Pitches</h5>
-<table id="productSizes" class="table">
+<table class="table">
   <thead>
   <tr>
     <th>Pitch 1</th>
     <th>Pitch 2</th>
     <th>Pitch 3</th>
-    <%= content_tag(:th, "Pitch 4") if @player.pitching_attr.pitch_4 != 0 %>
-    <%= content_tag(:th, "Pitch 5") if @player.pitching_attr.pitch_5 != 0 %>
+    <%= content_tag(:th, "Pitch 4") if @player.pitching_attr.pitch_4 %>
+    <%= content_tag(:th, "Pitch 5") if @player.pitching_attr.pitch_5 %>
   </tr>
   </thead>
   <tbody>
@@ -37,8 +37,8 @@
     <td><%= @player.pitching_attr.pitch_1 %></td>
     <td><%= @player.pitching_attr.pitch_2 %></td>
     <td><%= @player.pitching_attr.pitch_3 %></td>
-    <%= content_tag(:td, @player.pitching_attr.pitch_4) if @player.pitching_attr.pitch_4 != 0 %>
-    <%= content_tag(:td, @player.pitching_attr.pitch_5) if @player.pitching_attr.pitch_5 != 0 %>
+    <%= content_tag(:td, @player.pitching_attr.pitch_4) if @player.pitching_attr.pitch_4 %>
+    <%= content_tag(:td, @player.pitching_attr.pitch_5) if @player.pitching_attr.pitch_5 %>
   </tr>
   </tbody>
 </table>

@@ -8,3 +8,5 @@ MILPBE_URL = "#{JCINK_BASE_URL}?c=17".freeze
 NAME_REGEX = %r{\[(?<season>S\d+)\](?>[-_\r\0\s]*)(?<name>.+)(?<!\s)(?>\s*-\s*)(?<position>\w+)}
 
 PAGE_COUNT_REGEX = %r{(?>Pages: )\((?<count>\d+)\)}
+
+ATTR_REGEX = %r{\(MIN:.+\)\s*\(MAX: .+\)\s*(?<attr>[^:]+):\s+(?!0)(?<val>[^:\n]+)$}
