@@ -32,7 +32,7 @@ module Services
       end
 
       def league_urls(league)
-        league == 'pbe' ? [PBE_EAST_URL, PBE_WEST_URL] : [MILPBE_URL]
+        league == 'pbe' ? PBE_LEAGUES : MILPBE_LEAGUES
       end
     end
   end
